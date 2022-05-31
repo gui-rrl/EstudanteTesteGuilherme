@@ -10,34 +10,43 @@ namespace EstudanteTesteGuilherme.Controllers
 {
     public class EstudanteController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Estudante()
         {
             return View();
         }
 
-        public ActionResult Estudante_SelecionarFiltro(Filtro filtro)
+        public JsonResult Estudante_SelecionarFiltro(Filtro filtro)
         {
             List<Estudante> lista = new List<Estudante>();
             lista = SelecionarFiltro(filtro);
-            var retorno = new
-            {
-                data = lista
-            };
-            return new JsonResult(retorno);
-        }   
-        
-        public ActionResult EstudanteEditar()
-        {
-            Estudante estudante = new Estudante();
-            estudante = Selecionar(estudante.Identificador);
-            return new JsonResult(estudante);
+            
+            return Json(new JsonResult(lista));
         }
 
-        public string EstudanteInserir_Alterar(Estudante estudante)
+        public IActionResult EstudanteEditar()
         {
-            string identificador = Convert.ToInt32(estudante.Identificador).ToString();
+            Estudante estudante = new Estudante();
+            if(RouteData.Values["id"] != null)
+            {
+                estudante = Selecionar(Convert.ToInt32(RouteData.Values["id"]));
+            }
+
+            return View(estudante);
+        }
+
+        //public IActionResult EstudanteEditar()
+        //{
+        //    Estudante estudante = new Estudante();
+        //    estudante = Selecionar(estudante.Identificador);
+
+        //    return new JsonResult(estudante);
+        //}
+
+        public int EstudanteEditar_Alterar(Estudante estudante)
+        {
+            int identificador = estudante.Identificador;
             
-            if(identificador != default(string))
+            if(identificador != 0)
             {
                 Alterar(estudante);
                 return identificador;

@@ -2,6 +2,82 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+
 }
 
+<div>
+    <h2>Estudante - Editar</h2>
+</div>
 
+<div class="row">
+
+    <!-- Identificador -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="Identificador">Identificador</label>
+            <input id="Identificador" disabled="disabled" readonly type="text" value="@Model.Identificador" class="form-control" name="Identificador">
+        </div>
+    </div>
+
+    <!-- Nome -->
+    <div class="col-md-3 col-xs-3">
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input id="Nome" required="required" type="text" value="@Model.Nome" class="form-control" name="Nome">
+        </div>
+    </div>
+
+    <!-- Curso -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="Curso">Curso</label>
+            <input id="Curso" required="required" type="text" value="@Model.Curso" class="form-control" name="Curso">
+        </div>
+    </div>
+
+    <!-- Data de Nascimento-->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="DataNascimento">Data de nascimento</label>
+            <input id="DataNascimento" required="required" type="date" value="@Model.DataNascimento" class="form-control" name="DataNascimento">
+        </div>
+    </div>
+
+
+    <!-- Status -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="Status">Status</label>
+            <select id="Status" class="form-control">
+                @if (Model.Status)
+                {
+                    <option value="2">Selecione</option>
+                    <option selected value="1">Ativo</option>
+                    <option value="0">Inativo</option>
+                }
+                else if (!Model.Status)
+                {
+                    <option value="2">Selecione</option>
+                    <option value="1">Ativo</option>
+                    <option selected value="0">Inativo</option>
+                }
+                else
+                {   
+                    <option selected value="2">Selecione</option>
+                    <option value="1">Ativo</option>
+                    <option value="0">Inativo</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-1 col-xs-1">
+        <div class="form-group">
+            <button onclick="estudanteEditar.funcoes.salvar()">Salvar</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script src="~/Content/Estudante/Scripts/EstudanteEditar.js"></script>

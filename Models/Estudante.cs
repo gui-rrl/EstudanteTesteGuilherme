@@ -30,10 +30,10 @@ namespace Models
                 connection.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("spo_EstudanteTesteGuilherme_SelecionarFiltro", connection);
+            SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_SelecionarFiltro", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            if (filtro.Identificador != default)
+            if (!string.IsNullOrEmpty(filtro.Identificador))
             {
                 cmd.Parameters.AddWithValue("@Identificador", filtro.Identificador);
             }
@@ -42,7 +42,7 @@ namespace Models
                 cmd.Parameters.AddWithValue("@Identificador", DBNull.Value);
             }
 
-            if (filtro.Nome != default)
+            if (!string.IsNullOrEmpty(filtro.Nome))
             {
                 cmd.Parameters.AddWithValue("@Nome", filtro.Nome);
             }
@@ -51,7 +51,7 @@ namespace Models
                 cmd.Parameters.AddWithValue("@Nome", DBNull.Value);
             }
 
-            if (filtro.Curso != default)
+            if (!string.IsNullOrEmpty(filtro.Curso))
             {
                 cmd.Parameters.AddWithValue("@Curso", filtro.Curso);
             }
@@ -60,14 +60,7 @@ namespace Models
                 cmd.Parameters.AddWithValue("@Curso", DBNull.Value);
             }
 
-            if (filtro.Status != default)
-            {
-                cmd.Parameters.AddWithValue("@Status", filtro.Status);
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@Status", DBNull.Value);
-            }
+            cmd.Parameters.AddWithValue("@Status", filtro.Status);
 
             SqlDataReader dr = cmd.ExecuteReader();
             List<Estudante> listaEstudante = new List<Estudante>();
@@ -75,10 +68,18 @@ namespace Models
             while (dr.Read())
             {
                 Estudante estudante = new Estudante();
-                estudante.Identificador = Convert.ToInt32(dr["Identificador"].ToString());
-                estudante.Nome = dr["Nome"].ToString();
-                estudante.Curso = dr["Curso"].ToString();
-                estudante.Status = Convert.ToBoolean(dr["Status"].ToString());
+
+                if (dr["Identificador"] != DBNull.Value)
+                    estudante.Identificador = Convert.ToInt32(dr["Identificador"].ToString());
+
+                if (dr["Nome"] != DBNull.Value)
+                    estudante.Nome = dr["Nome"].ToString();
+
+                if (dr["Curso"] != DBNull.Value)
+                    estudante.Curso = dr["Curso"].ToString();
+
+                if (dr["Status"] != DBNull.Value)
+                    estudante.Status = Convert.ToBoolean(dr["Status"].ToString());
 
                 listaEstudante.Add(estudante);
             }
@@ -100,10 +101,11 @@ namespace Models
                 connection.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("spo_EstudanteTesteGuilherme_Selecionar", connection);
+            SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_Selecionar", connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("Identificador", identificador);
             SqlDataReader dr = cmd.ExecuteReader();
+
             Estudante estudante = new Estudante();
 
             while (dr.Read())
@@ -133,7 +135,7 @@ namespace Models
                 connection.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("spo_EstudanteTesteGuilherme_Inserir", connection);
+            SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_Inserir", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@Nome", estudante.Nome);
