@@ -8,7 +8,7 @@
         tabela: $('#tabelaEstudante')
     },
     variaveis: {
-        url: window.Location.origin        
+        url: window.Location.origin
     },
     funcoes: {
         consultar: () => {
@@ -19,14 +19,6 @@
                 Status: estudante.campos.status.val()
             }
 
-            //inserir: () => {
-            //    var estudante
-            //    Identificador: estudante.campos.identificador.val();
-            //    Nome: estudante.campos.nome.val();
-            //    Curso: estudante.campos.curso.val();
-            //    Status: estudante.campos.Status.val();
-            //}
-            
             $("#tabelaEstudante").DataTable({
                 'sDom': 't',
                 "destroy": true,
@@ -40,7 +32,17 @@
                     { "data": "identificador" },
                     { "data": "nome" },
                     { "data": "curso" },
-                    { "data": "status" },
+                    {
+                        "data": "status",
+                        "render": (data) => {
+                            if (data == true) {
+                                return "<p class='text-success'>Ativo</p>"
+                            }
+                            else {
+                                return "<p class='text-danger'>Inativo</p>"
+                            }
+                        }
+                    },
                     {
                         "data": "identificador",
                         "render": (identificador) => {

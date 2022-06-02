@@ -14,19 +14,19 @@ namespace EstudanteTesteGuilherme.Controllers
         {
             return View();
         }
-
+        [HttpPost]
         public JsonResult Estudante_SelecionarFiltro(Filtro filtro)
         {
             List<Estudante> lista = new List<Estudante>();
             lista = SelecionarFiltro(filtro);
-            
+
             return Json(new JsonResult(lista));
         }
 
         public IActionResult EstudanteEditar()
         {
             Estudante estudante = new Estudante();
-            if(RouteData.Values["id"] != null)
+            if (RouteData.Values["id"] != null)
             {
                 estudante = Selecionar(Convert.ToInt32(RouteData.Values["id"]));
             }
@@ -34,24 +34,16 @@ namespace EstudanteTesteGuilherme.Controllers
             return View(estudante);
         }
 
-        //public IActionResult EstudanteEditar()
-        //{
-        //    Estudante estudante = new Estudante();
-        //    estudante = Selecionar(estudante.Identificador);
-
-        //    return new JsonResult(estudante);
-        //}
-
-        public int EstudanteEditar_Alterar(Estudante estudante)
+        [HttpPost]
+        public string EstudanteEditar_Alterar(Estudante estudante)
         {
-            int identificador = estudante.Identificador;
-            
-            if(identificador != 0)
+            string identificador = Convert.ToString(estudante.Identificador);
+
+            if (identificador != "0")
             {
                 Alterar(estudante);
                 return identificador;
             }
-
             else
             {
                 Inserir(estudante);

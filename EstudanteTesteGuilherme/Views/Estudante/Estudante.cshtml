@@ -4,9 +4,15 @@
 @{
 }
 
-<div>
-    <h2>Estudante</h2>
+<div class="row">
+    <div class="col-md-2 col-xs-2">
+        <h2>Estudante</h2> <br />
+    </div>
+    <div class="col-md-2 col-xs-2">
+        <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+    </div>
 </div>
+<br />
 
 <div class="row">
 
@@ -47,18 +53,12 @@
     </div>
     <div class="col-md-1 col-xs-1">
         <div class="form-group">
-            <button onclick="estudante.funcoes.consultar()">Buscar</button>
-        </div>
-    </div>
-    <div class="col-md-1 col-xs-1">
-        <div class="form-group">
-            <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+            <label for="buscar"></label>
+            <button id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
         </div>
     </div>
 </div>
-<div>
-    <br />
-    <br />
+<div class="container-fluid mt-4">
     <table id="tabelaEstudante" class="display">
         <thead>
             <tr>
@@ -68,11 +68,12 @@
                 <td>Status</td>
                 <td>Action</td>
             </tr>
-        </thead>     
+        </thead>
     </table>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script src="sweetalert2.all.min.js"></script>
 <script src="~/Content/Estudante/Scripts/Estudante.js"></script>

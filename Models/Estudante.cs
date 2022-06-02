@@ -34,31 +34,19 @@ namespace Models
             cmd.CommandType = CommandType.StoredProcedure;
 
             if (!string.IsNullOrEmpty(filtro.Identificador))
-            {
                 cmd.Parameters.AddWithValue("@Identificador", filtro.Identificador);
-            }
             else
-            {
                 cmd.Parameters.AddWithValue("@Identificador", DBNull.Value);
-            }
 
             if (!string.IsNullOrEmpty(filtro.Nome))
-            {
                 cmd.Parameters.AddWithValue("@Nome", filtro.Nome);
-            }
             else
-            {
                 cmd.Parameters.AddWithValue("@Nome", DBNull.Value);
-            }
 
             if (!string.IsNullOrEmpty(filtro.Curso))
-            {
                 cmd.Parameters.AddWithValue("@Curso", filtro.Curso);
-            }
             else
-            {
                 cmd.Parameters.AddWithValue("@Curso", DBNull.Value);
-            }
 
             cmd.Parameters.AddWithValue("@Status", filtro.Status);
 
@@ -128,7 +116,7 @@ namespace Models
         public static int Inserir(Estudante estudante)
         {
             SqlConnection connection = new SqlConnection("Server=GUILHERME;Database=Estudantes;" +
-               "Trusted_Connection=True");
+           "Trusted_Connection=True");
 
             if (connection.State == ConnectionState.Closed)
             {
@@ -154,61 +142,33 @@ namespace Models
 
         public static void Alterar(Estudante estudante)
         {
-            SqlConnection connection = new SqlConnection("Server=GUILHERME;Database=Estudantes;" +
-               "Trusted_Connection=True");
-
-            if (connection.State == ConnectionState.Closed)
+            if(estudante.Identificador != 0) 
             {
-                connection.Open();
+
+                SqlConnection connection = new SqlConnection("Server=GUILHERME;Database=Estudantes;" +
+                   "Trusted_Connection=True");
+
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_Alterar", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Identificador", estudante.Identificador);
+
+                cmd.Parameters.AddWithValue("@Nome", estudante.Nome);
+                cmd.Parameters.AddWithValue("@Curso", estudante.Curso);
+                cmd.Parameters.AddWithValue("@DataNascimento", estudante.DataNascimento);
+                cmd.Parameters.AddWithValue("@Status", estudante.Status);
+                cmd.ExecuteNonQuery();
+
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
             }
-
-            SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_Alterar", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@Identificador", estudante.Identificador);
-
-            cmd.Parameters.AddWithValue("@Nome", estudante.Nome);
-            cmd.Parameters.AddWithValue("@Curso", estudante.Curso);
-            cmd.Parameters.AddWithValue("@DataNascimento", estudante.DataNascimento);
-            cmd.Parameters.AddWithValue("@Status", estudante.Status);
-            cmd.ExecuteNonQuery();
-
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-        }
-
-        //public static List<Estudante> Selecionar()
-        //{
-        //    SqlConnection connection = new SqlConnection("Server=GUILHERME;Database=Estudantes;" +
-        //       "Trusted_Connection=True");
-        //    if (connection.State == ConnectionState.Closed)  //System.Data.ConnectionState.Closed
-        //    {
-        //        connection.Open();
-        //    }
-        //    SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_SelecionarTodos", connection);
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    SqlDataReader dr = cmd.ExecuteReader();
-
-        //    List<Estudante> lista = new List<Estudante>();
-        //    while (dr.Read())
-        //    {
-        //        Estudante estudante = new Estudante();
-        //        estudante.Identificador = int.Parse(dr["Identificador"].ToString());
-        //        estudante.Nome = dr["Nome"].ToString();
-        //        estudante.Curso = dr["Curso"].ToString();
-        //        estudante.DataNascimento = Convert.ToDateTime(dr["DataNascimento"].ToString());
-        //        estudante.Status = Convert.ToBoolean(dr["Status"].ToString());
-
-        //        lista.Add(estudante);
-        //    }
-
-        //    if (connection.State == ConnectionState.Open)
-        //    {
-        //        connection.Close();
-        //    }
-        //    return lista;
-        //}
+        }      
     }
 }

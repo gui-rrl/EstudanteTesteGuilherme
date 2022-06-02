@@ -2,53 +2,57 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-
 }
 
-<div>
-    <h2>Estudante - Editar</h2>
+<div class="row">
+    <div class="col-md-4 col-xs-4">
+        <h2>Estudante - Editar</h2> <br />
+    </div>
+    <div class="col-md-2 col-xs-2">
+        <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+    </div>
 </div>
+<br />
 
 <div class="row">
 
     <!-- Identificador -->
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
-            <label for="Identificador">Identificador</label>
-            <input id="Identificador" disabled="disabled" readonly type="text" value="@Model.Identificador" class="form-control" name="Identificador">
+            <label for="identificador">Identificador</label>
+            <input id="identificador" disabled="disabled" readonly type="text" value="@Model.Identificador" class="form-control" name="identificador">
         </div>
     </div>
 
     <!-- Nome -->
     <div class="col-md-3 col-xs-3">
         <div class="form-group">
-            <label for="Nome">Nome</label>
-            <input id="Nome" required="required" type="text" value="@Model.Nome" class="form-control" name="Nome">
+            <label for="nome">Nome</label>
+            <input id="nome" required="required" type="text" value="@Model.Nome" class="form-control" name="nome">
         </div>
     </div>
 
     <!-- Curso -->
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
-            <label for="Curso">Curso</label>
-            <input id="Curso" required="required" type="text" value="@Model.Curso" class="form-control" name="Curso">
+            <label for="curso">Curso</label>
+            <input id="curso" required="required" type="text" value="@Model.Curso" class="form-control" name="curso">
         </div>
     </div>
 
     <!-- Data de Nascimento-->
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
-            <label for="DataNascimento">Data de nascimento</label>
-            <input id="DataNascimento" required="required" type="date" value="@Model.DataNascimento" class="form-control" name="DataNascimento">
+            <label for="dataNascimento">Data de nascimento</label>
+            <input id="dataNascimento" required="required" type="date" value="@Model.DataNascimento" class="form-control" name="dataNascimento">
         </div>
     </div>
-
 
     <!-- Status -->
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
-            <label for="Status">Status</label>
-            <select id="Status" class="form-control">
+            <label for="status">Status</label>
+            <select id="status" class="form-control">
                 @if (Model.Status)
                 {
                     <option value="2">Selecione</option>
@@ -62,7 +66,7 @@
                     <option selected value="0">Inativo</option>
                 }
                 else
-                {   
+                {
                     <option selected value="2">Selecione</option>
                     <option value="1">Ativo</option>
                     <option value="0">Inativo</option>
@@ -70,9 +74,11 @@
             </select>
         </div>
     </div>
+
     <div class="col-md-1 col-xs-1">
         <div class="form-group">
-            <button onclick="estudanteEditar.funcoes.salvar()">Salvar</button>
+            <label for="buscar"></label>
+            <button class="btn btn-primary" onclick="estudanteEditar.funcoes.salvar()">Salvar</button>
         </div>
     </div>
 </div>
@@ -80,4 +86,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script src="sweetalert2.all.min.js"></script>
 <script src="~/Content/Estudante/Scripts/EstudanteEditar.js"></script>
