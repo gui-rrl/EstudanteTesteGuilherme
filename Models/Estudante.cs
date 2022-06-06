@@ -126,6 +126,7 @@ namespace Models
             SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_Inserir", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
+            //cmd.Parameters.AddWithValue("@Identificador", estudante.Identificador);
             cmd.Parameters.AddWithValue("@Nome", estudante.Nome);
             cmd.Parameters.AddWithValue("@Curso", estudante.Curso);
             cmd.Parameters.AddWithValue("@DataNascimento", estudante.DataNascimento);
@@ -142,7 +143,7 @@ namespace Models
 
         public static void Alterar(Estudante estudante)
         {
-            if(estudante.Identificador != 0) 
+            if (estudante.Identificador != 0)
             {
 
                 SqlConnection connection = new SqlConnection("Server=GUILHERME;Database=Estudantes;" +
@@ -169,6 +170,6 @@ namespace Models
                     connection.Close();
                 }
             }
-        }      
+        }
     }
 }

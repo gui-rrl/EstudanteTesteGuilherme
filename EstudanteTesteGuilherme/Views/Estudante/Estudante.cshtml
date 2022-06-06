@@ -4,15 +4,35 @@
 @{
 }
 
+<header>  
+        <div id="divC" class="container">
+            <a id="semSub" class="navbar-brand" asp-area="" asp-controller="Estudante" asp-action="Estudante">Estudantes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a id="semSub" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><strong>Home</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</header>
+<br />
+<br />
+
 <div class="row">
     <div class="col-md-2 col-xs-2">
-        <h2>Estudante</h2> <br />
+        <h2><b>Estudante</b></h2> <br />
     </div>
     <div class="col-md-2 col-xs-2">
         <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
     </div>
 </div>
 <br />
+
 
 <div class="row">
 
@@ -62,18 +82,18 @@
     <table id="tabelaEstudante" class="display">
         <thead>
             <tr>
-                <td>Identificador</td>
-                <td>Nome</td>
-                <td>Curso</td>
-                <td>Status</td>
-                <td>Action</td>
+                <td><strong>Identificador</strong></td>
+                <td><strong>Nome</strong></td>
+                <td><strong>Curso</strong></td>
+                <td><strong>Status</strong></td>
+                <td><strong>Action</strong></td>
             </tr>
         </thead>
     </table>
 </div>
 
+<script src="~/js/site.js" asp-append-version="true"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-<script src="sweetalert2.all.min.js"></script>
 <script src="~/Content/Estudante/Scripts/Estudante.js"></script>

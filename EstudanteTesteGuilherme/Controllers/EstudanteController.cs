@@ -14,7 +14,7 @@ namespace EstudanteTesteGuilherme.Controllers
         {
             return View();
         }
-        [HttpPost]
+        //[HttpPost]
         public JsonResult Estudante_SelecionarFiltro(Filtro filtro)
         {
             List<Estudante> lista = new List<Estudante>();
@@ -34,7 +34,7 @@ namespace EstudanteTesteGuilherme.Controllers
             return View(estudante);
         }
 
-        [HttpPost]
+        //[HttpPost]
         public string EstudanteEditar_Alterar(Estudante estudante)
         {
             string identificador = Convert.ToString(estudante.Identificador);

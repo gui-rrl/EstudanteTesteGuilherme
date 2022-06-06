@@ -50,7 +50,7 @@ namespace EstudanteTesteGuilherme
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Estudante}/{action=Estudante}/{id?}");
             });
         }
     }
