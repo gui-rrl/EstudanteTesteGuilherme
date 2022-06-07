@@ -22,6 +22,7 @@ namespace Models
         }
         public static List<Estudante> SelecionarFiltro(Filtro filtro)
         {
+
             SqlConnection connection = new SqlConnection("Server=GUILHERME;Database=Estudantes;" +
                "Trusted_Connection=True");
 

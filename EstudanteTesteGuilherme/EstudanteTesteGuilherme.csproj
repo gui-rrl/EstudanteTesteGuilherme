@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.2" />
+    <PackageReference Include="Moment.js" Version="2.29.3" />
   </ItemGroup>
 
   <ItemGroup>

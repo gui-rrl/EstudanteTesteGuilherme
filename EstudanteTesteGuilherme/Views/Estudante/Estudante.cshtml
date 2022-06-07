@@ -1,99 +1,98 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-<header>  
-        <div id="divC" class="container">
-            <a id="semSub" class="navbar-brand" asp-area="" asp-controller="Estudante" asp-action="Estudante">Estudantes</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+﻿
+<header>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+        <a id="semSub" class="navbar-brand" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a id="semSub" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><strong>Home</strong></a>
+                        <a id="semSub" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><strong>Home</strong></a>
                     </li>
                 </ul>
             </div>
-        </div>
+    </div>
 </header>
 <br />
 <br />
-
-<div class="row">
-    <div class="col-md-2 col-xs-2">
-        <h2><b>Estudante</b></h2> <br />
-    </div>
-    <div class="col-md-2 col-xs-2">
-        <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
-    </div>
-</div>
-<br />
-
-
-<div class="row">
-
-    <!-- Identificador -->
-    <div class="col-md-2 col-xs-2">
-        <div class="form-group">
-            <label for="identificador">Identificador</label>
-            <input id="identificador" required="required" type="text" value="" class="form-control" name="identificador">
+<div>
+    <div class="row">
+        <div class="col-md-2 col-xs-2">
+            <h3>Estudante</h3> <br />
+        </div>
+        <div class="col-md-2 col-xs-2">
+            <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
         </div>
     </div>
 
-    <!-- Nome -->
-    <div class="col-md-4 col-xs-4">
-        <div class="form-group">
-            <label for="nome">Nome</label>
-            <input id="nome" required="required" type="text" value="" class="form-control" name="nome">
-        </div>
-    </div>
+    <div class="row">
 
-    <!-- Curso -->
-    <div class="col-md-2 col-xs-2">
-        <div class="form-group">
-            <label for="curso">Curso</label>
-            <input id="curso" required="required" type="text" value="" class="form-control" name="curso">
+        <!-- Identificador -->
+        <div class="col-md-2 col-xs-2">
+            <div class="form-group">
+                <label for="identificador">Identificador</label>
+                <input id="identificador" required="required" type="text" value="" class="form-control" name="identificador">
+            </div>
         </div>
-    </div>
 
-    <!-- Status -->
-    <div class="col-md-2 col-xs-2">
-        <div class="form-group">
-            <label for="status">Status</label>
-            <select id="status" class="form-control">
-                <option selected value="2">Todos</option>
-                <option value="1">Ativo</option>
-                <option value="0">Inativo</option>
-            </select>
+        <!-- Nome -->
+        <div class="col-md-4 col-xs-4">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input id="nome" required="required" type="text" value="" class="form-control" name="nome">
+            </div>
+        </div>
+
+        <!-- Curso -->
+        <div class="col-md-2 col-xs-2">
+            <div class="form-group">
+                <label for="curso">Curso</label>
+                <input id="curso" required="required" type="text" value="" class="form-control" name="curso">
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div class="col-md-2 col-xs-2">
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" class="form-control">
+                    <option selected value="2">Todos</option>
+                    <option value="1">Ativo</option>
+                    <option value="0">Inativo</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-1 col-xs-1">
+            <div class="form-group">
+                <label for="buscar"></label>
+                <button id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
+            </div>
         </div>
     </div>
-    <div class="col-md-1 col-xs-1">
-        <div class="form-group">
-            <label for="buscar"></label>
-            <button id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
-        </div>
+    <div class="container-fluid mt-4">
+        <table id="tabelaEstudante" class="display">
+            <thead>
+                <tr>
+                    <td style="width: 10%"><strong>Identificador</strong></td>
+                    <td style="width: 25%"><strong>Nome</strong></td>
+                    <td style="width: 25%"><strong>Curso</strong></td>
+                    <td style="width: 10%"><strong>Status</strong></td>
+                    <td style="width: 5%"><strong>Action</strong></td>
+                </tr>
+            </thead>
+        </table>
     </div>
-</div>
-<div class="container-fluid mt-4">
-    <table id="tabelaEstudante" class="display">
-        <thead>
-            <tr>
-                <td><strong>Identificador</strong></td>
-                <td><strong>Nome</strong></td>
-                <td><strong>Curso</strong></td>
-                <td><strong>Status</strong></td>
-                <td><strong>Action</strong></td>
-            </tr>
-        </thead>
-    </table>
 </div>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
 <script src="~/Content/Estudante/Scripts/Estudante.js"></script>
+
+
+
+
+@*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>*@

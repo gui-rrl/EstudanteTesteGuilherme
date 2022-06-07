@@ -46,7 +46,7 @@ namespace EstudanteTesteGuilherme.Controllers
                     new Claim(ClaimTypes.Name, nome)
                 };
 
-                //Variavel vai salvar os direitos de acesso em um "cookie" 
+                //A variavel vai salvar os direitos de acesso em um "cookie" 
                 var identity = new ClaimsIdentity(direitoAcesso, "Identity.Login");
 
                 //Seta um Claims Principal com o Claims identity

@@ -22,6 +22,7 @@
             $("#tabelaEstudante").DataTable({
                 'sDom': 't',
                 "destroy": true,
+                "responsive": true,
                 "ajax": {
                     "url": "/Estudante/Estudante_SelecionarFiltro",
                     "type": "POST",
@@ -36,10 +37,10 @@
                         "data": "status",
                         "render": (data) => {
                             if (data == true) {
-                                return "<p class='text-success'>Ativo</p>"
+                                return "<p class='text-success'><strong>Ativo</strong></p>"
                             }
                             else {
-                                return "<p class='text-danger'>Inativo</p>"
+                                return "<p class='text-danger'><strong>Inativo</strong></p>"
                             }
                         }
                     },

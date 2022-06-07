@@ -4,28 +4,27 @@
 @{
 }
 
-<header>   
-        <div id="divC" class="container">
-            <a id="semSub" class="navbar-brand" asp-area="" asp-controller="Estudante" asp-action="Estudante">Estudantes</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a id="semSub" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                </ul>
-            </div>
+<header>
+    <div class="divC shadow-lg p-3 mb-5 bg-body rounded">
+        <a id="semSub" class="navbar-brand" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a id="semSub" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><strong>Home</strong></a>
+                </li>
+            </ul>
         </div>
+    </div>
 </header>
 <br />
 <br />
 
 <div class="row">
     <div class="col-md-4 col-xs-4">
-        <h2><b>Estudante</b> - Editar</h2> <br />
+        <h2>Estudante - Editar</h2> <br />
     </div>
     <div class="col-md-2 col-xs-2">
         <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
@@ -105,6 +104,6 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
 <script src="~/Content/Estudante/Scripts/EstudanteEditar.js"></script>
