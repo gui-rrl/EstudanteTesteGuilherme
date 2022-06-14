@@ -30,23 +30,14 @@
                 },
             })
                 .done(function (res) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Cadastro salvo com sucesso',
-                        showConfirmButton: false,
-                        timer: 80000
-                    })
+                    alert("Estudante salvo com sucesso")
                     window.location.href = `${estudanteEditar.variaveis.url}/Estudante/Estudante/`;
                 })
 
                 .fail(function (err) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Erro',
-                        text: 'Erro ao salvar o cadastro',
-                    })
-                });
+                    alert("Erro ao salvar cadastro")
+                    window.location.href = `${estudanteEditar.variaveis.url}/Estudante/Estudante/`;
+                })
         },
     }
 }

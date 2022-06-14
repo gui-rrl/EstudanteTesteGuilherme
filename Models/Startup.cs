@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +24,23 @@ namespace Models
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                /*Habilita o session state e define em 180 segundos o tempo que a sessão pode ficar ociosa
+                antes que seu conteúdo seja abandonado. (Cada acesso à sessão redefine o tempo limite, e, isso não se aplica ao cookie).*/
+                options.IdleTimeout = TimeSpan.FromSeconds(180);
+
+                //Define que o cookie poderá ser acessado por scripts do lado do cliente 
+                options.Cookie.HttpOnly = true;
+
+                //Define que o cookie é essencial para que a aplicação funcione corretamente.
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddRazorPages();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,11 +56,12 @@ namespace Models
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

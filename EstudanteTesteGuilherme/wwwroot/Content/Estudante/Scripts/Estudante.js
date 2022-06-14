@@ -20,7 +20,8 @@
             }
 
             $("#tabelaEstudante").DataTable({
-                'sDom': 't',
+                /*'sDom': 't',*/
+                "dom": '<"top">rt<"bottom"ip><"clear">',
                 "destroy": true,
                 "responsive": true,
                 "ajax": {

@@ -1,88 +1,81 @@
-﻿
-<header>
+﻿<header>
     <div class="shadow p-3 mb-5 bg-body rounded">
-        <a id="semSub" class="navbar-brand" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+        <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
         </button>
         <div class="divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a id="semSub" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><strong>Home</strong></a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a>
+                </li>
+            </ul>
+        </div>
     </div>
 </header>
-<br />
-<br />
 <div>
-    <div class="row">
-        <div class="col-md-2 col-xs-2">
-            <h3>Estudante</h3> <br />
-        </div>
-        <div class="col-md-2 col-xs-2">
-            <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+    <h3 class="cor-fonte">Estudante</h3> <br/>
+</div>
+<div>
+    <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+</div>
+<br />
+<div class="row cor-fonte">
+
+    <!-- Identificador -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="identificador">Identificador</label>
+            <input id="identificador" required="required" type="text" value="" class="form-control" name="identificador">
         </div>
     </div>
 
-    <div class="row">
-
-        <!-- Identificador -->
-        <div class="col-md-2 col-xs-2">
-            <div class="form-group">
-                <label for="identificador">Identificador</label>
-                <input id="identificador" required="required" type="text" value="" class="form-control" name="identificador">
-            </div>
-        </div>
-
-        <!-- Nome -->
-        <div class="col-md-4 col-xs-4">
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input id="nome" required="required" type="text" value="" class="form-control" name="nome">
-            </div>
-        </div>
-
-        <!-- Curso -->
-        <div class="col-md-2 col-xs-2">
-            <div class="form-group">
-                <label for="curso">Curso</label>
-                <input id="curso" required="required" type="text" value="" class="form-control" name="curso">
-            </div>
-        </div>
-
-        <!-- Status -->
-        <div class="col-md-2 col-xs-2">
-            <div class="form-group">
-                <label for="status">Status</label>
-                <select id="status" class="form-control">
-                    <option selected value="2">Todos</option>
-                    <option value="1">Ativo</option>
-                    <option value="0">Inativo</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-1 col-xs-1">
-            <div class="form-group">
-                <label for="buscar"></label>
-                <button id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
-            </div>
+    <!-- Nome -->
+    <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input id="nome" required="required" type="text" value="" class="form-control cor-fonte" name="nome">
         </div>
     </div>
-    <div class="container-fluid mt-4">
-        <table id="tabelaEstudante" class="display">
-            <thead>
-                <tr>
-                    <td style="width: 5%"><strong>Identificador</strong></td>
-                    <td style="width: 40%"><strong>Nome</strong></td>
-                    <td style="width: 35%"><strong>Curso</strong></td>
-                    <td style="width: 15%"><strong>Status</strong></td>
-                    <td style="width: 5%"><strong>Action</strong></td>
-                </tr>
-            </thead>
-        </table>
+
+    <!-- Curso -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="curso">Curso</label>
+            <input id="curso" required="required" type="text" value="" class="form-control cor-fonte" name="curso">
+        </div>
     </div>
+
+    <!-- Status -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select id="status" class="form-control">
+                <option selected value="2">Todos</option>
+                <option value="1">Ativo</option>
+                <option value="0">Inativo</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-1 col-xs-1">
+        <div class="form-group">
+            <label for="buscar"></label>
+            <button id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt-4">
+    <table id="tabelaEstudante" class="stripe cell-border" style="color: Silver; background-color: #36648B ">
+        <thead style="background-color: #104E8B">
+            <tr>
+                <th style="width: 5%"><strong>Identificador</strong></th>
+                <th style="width: 40%"><strong>Nome</strong></th>
+                <th style="width: 35%"><strong>Curso</strong></th>
+                <th style="width: 15%"><strong>Status</strong></th>
+                <th style="width: 5%"><strong>Action</strong></th>
+            </tr>
+        </thead>
+    </table>
 </div>
 
 <script src="~/js/site.js" asp-append-version="true"></script>

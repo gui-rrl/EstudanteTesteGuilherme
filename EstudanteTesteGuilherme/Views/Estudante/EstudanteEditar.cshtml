@@ -1,44 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-<header>
-    <div class="divC shadow-lg p-3 mb-5 bg-body rounded">
-        <a id="semSub" class="navbar-brand" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+﻿<header>
+    <div class="shadow p-3 mb-5 bg-body rounded" style="border-left: 0px; border-right: 0px">
+        <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
         </button>
         <div class="divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">
-                    <a id="semSub" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><strong>Home</strong></a>
+                    <a id="semSub" class="nav-link cor-fonte" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a>
                 </li>
             </ul>
         </div>
     </div>
 </header>
-<br />
-<br />
-
-<div class="row">
-    <div class="col-md-4 col-xs-4">
-        <h2>Estudante - Editar</h2> <br />
+    <div>
+        <h3 class="cor-fonte">Estudante - Editar</h3> <br />
     </div>
-    <div class="col-md-2 col-xs-2">
-        <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
-    </div>
+<div>
+    <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
 </div>
 <br />
-
-<div class="row">
+<div class="row cor-fonte">
 
     <!-- Identificador -->
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
             <label for="identificador">Identificador</label>
-            <input id="identificador" disabled="disabled" readonly type="text" value="@Model.Identificador" class="form-control" name="identificador">
+            <input id="identificador" disabled="disabled" readonly type="text" value="@Model.Identificador" class="form-control cor-fonte" name="identificador">
         </div>
     </div>
 
@@ -46,7 +34,7 @@
     <div class="col-md-3 col-xs-3">
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input id="nome" required="required" type="text" value="@Model.Nome" class="form-control" name="nome">
+            <input id="nome" required="required" type="text" value="@Model.Nome" class="form-control cor-fonte" name="nome">
         </div>
     </div>
 
@@ -54,7 +42,7 @@
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
             <label for="curso">Curso</label>
-            <input id="curso" required="required" type="text" value="@Model.Curso" class="form-control" name="curso">
+            <input id="curso" required="required" type="text" value="@Model.Curso" class="form-control cor-fonte" name="curso">
         </div>
     </div>
 
@@ -62,7 +50,7 @@
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
             <label for="dataNascimento">Data de nascimento</label>
-            <input id="dataNascimento" required="required" type="date" value="@Model.DataNascimento" class="form-control" name="dataNascimento">
+            <input id="dataNascimento" required="required" type="date" value="@Model.DataNascimento" class="form-control cor-fonte" name="dataNascimento">
         </div>
     </div>
 
@@ -102,7 +90,6 @@
 </div>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css" />
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>

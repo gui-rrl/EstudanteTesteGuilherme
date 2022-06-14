@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
     public class Estudante
     {
         public int Identificador { get; set; }
-        public string Nome { get; set; }
-        public string Curso { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public string Nome { get; set; }       
+        public string Curso { get; set; }       
+        public DateTime DataNascimento { get; set; }      
         public bool Status { get; set; }
 
         public class Filtro
@@ -124,6 +125,7 @@ namespace Models
                 connection.Open();
             }
 
+
             SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_Inserir", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -138,7 +140,6 @@ namespace Models
             {
                 connection.Close();
             }
-
             return resultado;
         }
 
