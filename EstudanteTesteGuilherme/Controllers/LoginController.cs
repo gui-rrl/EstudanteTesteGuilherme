@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using System;
 using Microsoft.AspNetCore.Session;
 using System.Web;
-using static Models.Usuario;
 using Models;
 
 namespace EstudanteTesteGuilherme.Controllers
@@ -16,12 +15,23 @@ namespace EstudanteTesteGuilherme.Controllers
         {
             return View();
         }
-        public void ChecarLogin(Usuario usuarioInformado)
+        [HttpPost]
+        public JsonResult Usuario_ChecarLogin(Usuario usuarioInformado)
         {
+            int codigo;
 
-            Logar(usuarioInformado);          
-            //HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(usuario));
-            Response.Redirect("/Estudante/Estudante");
+            if (Usuario.Logar(usuarioInformado) == true)
+            {
+                HttpContext.Session.SetString("usuarioSessao", JsonConvert.SerializeObject(usuarioInformado));
+                codigo = 1;
+            }
+
+            else
+            {
+                codigo = 0;
+
+            }
+            return Json(new JsonResult(new {codigo}));
         }
     }
 }

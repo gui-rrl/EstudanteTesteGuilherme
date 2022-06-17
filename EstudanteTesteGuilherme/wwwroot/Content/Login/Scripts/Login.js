@@ -5,23 +5,31 @@
         senha: $('#senha')
     },
     variaveis: {
-        url: window.Location.origin
+        url: window.Location.origin,
+        urlRedirecionamento: "/Estudante/Estudante/"
     },
     funcoes: {
         logar: () => {
             let usuarioInformado = {
                 Email: usuario.campos.email.val(),
                 Senha: usuario.campos.senha.val(),
-                //Email: $('#email').val(),
-                //Senha: $('#senha').val(),
             }
             console.log(usuarioInformado)
             $.ajax({
-                url: "/Login/ChecarLogin",
-                async: false,
+                url: "/Login/Usuario_ChecarLogin",
                 type: 'post',
                 data: {
                     usuarioInformado: usuarioInformado
+                },
+                success: function ({ value }) {
+                    if (value.codigo == 1) {
+                        window.location = usuario.variaveis.urlRedirecionamento
+                    }
+
+                    else {
+                        alert("Usuario invalido");
+                        window.location.href = window.location.href;
+                    }
                 }
             })
         }

@@ -17,7 +17,6 @@
                 Nome: estudanteEditar.campos.nome.val(),
                 Curso: estudanteEditar.campos.curso.val(),
                 DataNascimento: estudanteEditar.campos.dataNascimento.val(),
-                /*Status: Boolean(estudanteEditar.campos.status.val())*/
                 Status: estudanteEditar.campos.status.val() == 1 ? true : false
             }
             console.log(estudante)
