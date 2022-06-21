@@ -1,9 +1,11 @@
 ﻿<header>
     <div class="shadow p-3 mb-5 bg-body rounded" style="border-left: 0px; border-right: 0px">
-        <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-        </button>
+        <div>
+            <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+            </button>
+        </div>
         <div class="divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">
@@ -13,11 +15,13 @@
         </div>
     </div>
 </header>
+<div class="row">
     <div>
-        <h3 class="cor-fonte">Estudante - Editar</h3> <br />
+        <h3 class="cor-fonte" style="margin-left: 20px">Estudante - Editar</h3> <br />
     </div>
-<div>
-    <a class="btn btn-success" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+    <div>
+        <a class="btn btn-success" style="margin-left: 10px" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+    </div>
 </div>
 <br />
 <div class="row cor-fonte">

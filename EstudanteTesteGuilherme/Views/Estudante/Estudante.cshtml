@@ -1,53 +1,53 @@
 ﻿<header>
-    <div class="shadow p-3 mb-5 bg-body rounded">
-        <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-        <div class="divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a>
-                </li>
-            </ul>
+    <div class="container-fluid row shadow p-3 mb-5 bg-body rounded col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-6 col-md-6 col-lg-3">
+            <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3 divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a>
         </div>
     </div>
 </header>
-<div>
-    <h3 class="cor-fonte" style="margin-left: 20px">Estudante</h3> <br/>
-</div>
-<div>
-    <a class="btn btn-success" style="margin-left: 10px" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+<div class="row">
+    <div>
+        <h3 class="cor-fonte" style="margin-left: 30px">Estudante</h3> <br />
+    </div>
+    <div>
+        <a class="btn btn-success" style="margin-left: 10px" asp-area="" asp-controller="Estudante" asp-action="EstudanteEditar">Novo</a>
+    </div>
 </div>
 <br />
-<div class="row cor-fonte" style="margin-left: 10px">
+<div class="row cor-fonte col-sm-12 col-md-6 col-lg-6">
 
     <!-- Identificador -->
-    <div class="col-md-2 col-xs-2">
+    <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
             <label for="identificador">Identificador</label>
             <input id="identificador" required="required" type="text" value="" class="form-control" name="identificador">
         </div>
     </div>
 
+
     <!-- Nome -->
-    <div class="col-md-4 col-xs-4">
+    <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
             <label for="nome">Nome</label>
             <input id="nome" required="required" type="text" value="" class="form-control cor-fonte" name="nome">
         </div>
     </div>
 
+
     <!-- Curso -->
-    <div class="col-md-2 col-xs-2">
+    <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
             <label for="curso">Curso</label>
             <input id="curso" required="required" type="text" value="" class="form-control cor-fonte" name="curso">
         </div>
     </div>
 
+
     <!-- Status -->
-    <div class="col-md-2 col-xs-2">
+    <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
             <label for="status">Status</label>
             <select id="status" class="form-control">
@@ -57,25 +57,29 @@
             </select>
         </div>
     </div>
-    <div class="col-md-1 col-xs-1">
+
+    <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
             <label for="buscar"></label>
             <button id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
         </div>
     </div>
 </div>
-<div class="container-fluid mt-4">
-    <table id="tabelaEstudante" class="stripe cell-border" style="color: Silver; background-color: #36648B ">
-        <thead style="background-color: #104E8B">
-            <tr>
-                <th style="width: 5%"><strong>Identificador</strong></th>
-                <th style="width: 40%"><strong>Nome</strong></th>
-                <th style="width: 35%"><strong>Curso</strong></th>
-                <th style="width: 15%"><strong>Status</strong></th>
-                <th style="width: 5%"><strong>Action</strong></th>
-            </tr>
-        </thead>
-    </table>
+<br />
+<div class="row">
+    <div class="container col-sm-6 col-md-12 col-lg-12">
+        <table id="tabelaEstudante" class="stripe cell-border" style="color: Silver; background-color: #36648B ">
+            <thead style="background-color: #104E8B">
+                <tr>
+                    <th style="width: 2%"><strong>Identificador</strong></th>
+                    <th style="width: 30%"><strong>Nome</strong></th>
+                    <th style="width: 20%"><strong>Curso</strong></th>
+                    <th style="width: 15%"><strong>Status</strong></th>
+                    <th style="width: 5%"><strong>Action</strong></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 </div>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
@@ -83,3 +87,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css" />
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
 <script src="~/Content/Estudante/Scripts/Estudante.js"></script>
+
+
+<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+</button-->
