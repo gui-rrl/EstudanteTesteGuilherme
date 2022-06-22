@@ -19,7 +19,6 @@
                 DataNascimento: estudanteEditar.campos.dataNascimento.val(),
                 Status: estudanteEditar.campos.status.val() == 1 ? true : false
             }
-            console.log(estudante)
             $.ajax({
                 url: estudanteEditar.variaveis.url + "/Estudante/EstudanteEditar_Alterar",
                 async: false,
@@ -29,7 +28,11 @@
                 },
             })
                 .done(function (res) {
-                    alert("Estudante salvo com sucesso")
+                    Swal.fire(
+                        'Sucesso!',
+                        'Cadastro realizado com sucesso',
+                        'success'
+                    )
                     window.location.href = `${estudanteEditar.variaveis.url}/Estudante/Estudante/`;
                 })
 
