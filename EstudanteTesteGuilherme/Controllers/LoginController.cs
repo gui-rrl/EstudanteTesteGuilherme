@@ -6,6 +6,7 @@ using System;
 using Microsoft.AspNetCore.Session;
 using System.Web;
 using Models;
+using static Models.Usuario;
 
 namespace EstudanteTesteGuilherme.Controllers
 {
@@ -15,6 +16,17 @@ namespace EstudanteTesteGuilherme.Controllers
         {
             return View();
         }
+
+        public IActionResult CadastroUsuario(int identificador)
+        {
+            Usuario usuario = new Usuario();
+            if (RouteData.Values["id"] != null)
+            {
+                usuario = SelecionarPorIdentificador(Convert.ToInt32(RouteData.Values["id"]));
+            }
+            return View(usuario);
+        }
+
         [HttpPost]
         public JsonResult Usuario_ChecarLogin(Usuario usuarioInformado)
         {
@@ -22,6 +34,7 @@ namespace EstudanteTesteGuilherme.Controllers
 
             if (Usuario.Logar(usuarioInformado) == true)
             {
+                HttpContext.Session.SetString("emailSessao", JsonConvert.SerializeObject(usuarioInformado.Email));
                 HttpContext.Session.SetString("usuarioSessao", JsonConvert.SerializeObject(usuarioInformado));
                 codigo = 1;
             }
@@ -32,6 +45,29 @@ namespace EstudanteTesteGuilherme.Controllers
 
             }
             return Json(new JsonResult(new {codigo}));
+        }
+
+        public int Usuario_InserirAtualizar(Usuario usuario)
+        {
+            int identificador = usuario.Identificador;
+
+            if (identificador != 0)
+            {
+                Alterar(usuario);
+                return identificador;
+            }
+
+            else
+            {
+                Inserir(usuario);
+                return identificador;
+            }
+        }
+
+        public void Deslogar()
+        {
+            HttpContext.Session.Clear();
+            Response.Redirect("/Login/Login");
         }
     }
 }

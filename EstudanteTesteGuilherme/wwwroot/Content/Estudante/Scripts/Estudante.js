@@ -56,6 +56,14 @@
         },
         init: function () {
             estudante.funcoes.consultar();
+        },
+
+        sair: () => {
+            $.ajax({
+                url: "/Login/Deslogar",
+                async: false,
+                type: 'POST',              
+            })
         }
     }
 }

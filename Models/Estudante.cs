@@ -125,7 +125,6 @@ namespace Models
                 connection.Open();
             }
 
-
             SqlCommand cmd = new SqlCommand("ADM2.spo_EstudanteTesteGuilherme_Inserir", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 

@@ -3,7 +3,13 @@
     <input type="text" name="email" id="email" placeholder="Digite seu E-mail" required="required" />
     <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required="required" />
     <button class="btn btn-primary btn-block btn-large" onclick="usuario.funcoes.logar()">Login</button>
+    <br />
+    <div style="text-align: center; color: white">
+        Não possui cadastro? 
+        <a asp-area="" asp-controller="Login" asp-action="CadastroUsuario"><strong> Clique aqui</strong></a>
+    </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link href="/Content/Login/login.css" rel="stylesheet" />

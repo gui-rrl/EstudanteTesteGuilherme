@@ -1,13 +1,23 @@
-﻿<header>
-    <div class="container-fluid row shadow p-3 mb-5 bg-body rounded col-sm-12 col-md-12 col-lg-12">
-        <div class="col-sm-6 col-md-6 col-lg-3">
-            <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+        <div class="container-fluid row shadow p-3 mb-5 bg-body rounded col-sm-12 col-md-12 col-lg-12">
+            <ul style="display: flex">
+                <li><a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a></li>
+                <li><a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a></li>
+            </ul>
+            <div>
+                <div class="cor-fonte">
+                    Usuario: @HttpContextAccessor.HttpContext.Session.GetString("emailSessao")
+                </div>
+                <button class="link col-sm-6 col-md-6 col-lg-3"> @Html.ActionLink("Sair", "Finalizar", "Sair")</button>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-3 divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a>
-        </div>
-    </div>
+    </nav>
 </header>
+
 <div class="row">
     <div>
         <h3 class="cor-fonte" style="margin-left: 30px">Estudante - Editar</h3> <br />
@@ -44,7 +54,7 @@
     <div class="col-md-2 col-xs-2">
         <div class="form-group">
             <label for="dataNascimento">Data de nascimento</label>
-            <input id="dataNascimento" required="required" type="date" value="@Model.DataNascimento" class="form-control cor-fonte" 
+            <input id="dataNascimento" required="required" type="date" value="@Model.DataNascimento" class="form-control cor-fonte"
                    min="1997-01-01" max="2030-12-31" name="dataNascimento">
         </div>
     </div>

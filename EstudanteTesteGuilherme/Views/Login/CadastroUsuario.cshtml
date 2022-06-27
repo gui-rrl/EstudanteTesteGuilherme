@@ -1,0 +1,47 @@
+﻿<header>
+    <div class="container-fluid row shadow p-3 mb-5 bg-body rounded col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-6 col-md-6 col-lg-3">
+            <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3 divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a>
+        </div>
+    </div>
+</header>
+
+<div class="cor-fonte">
+    <!-- Identificador -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="identificador">Identificador</label>
+            <input id="identificador" disabled="disabled" readonly type="text" value="@Model.Identificador" class="form-control cor-fonte" name="identificador">
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="col-md-3 col-xs-3">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" required="required" type="text" value="@Model.Email" class="form-control cor-fonte" name="email">
+        </div>
+    </div>
+
+    <!-- Senha -->
+    <div class="col-md-2 col-xs-2">
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input id="senha" required="required" type="password" value="@Model.Senha" class="form-control cor-fonte" name="senha">
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <button style="margin-left: 16px" class="btn btn-primary" onclick="cadastroUsuario.funcoes.salvar()">Salvar</button>
+    </div>
+</div>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
+<script src="~/Content/Usuario/Scripts/CadastroUsuario.js"></script>

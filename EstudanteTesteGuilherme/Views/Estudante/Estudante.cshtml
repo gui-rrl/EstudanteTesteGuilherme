@@ -1,13 +1,23 @@
-﻿<header>
-    <div class="container-fluid row shadow p-3 mb-5 bg-body rounded col-sm-12 col-md-12 col-lg-12">
-        <div class="col-sm-6 col-md-6 col-lg-3">
-            <a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a>
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+        <div class="container-fluid row shadow p-3 mb-5 bg-body rounded col-sm-12 col-md-12 col-lg-12">
+            <ul style="display: flex">
+                <li><a id="semSub" class="navbar-brand cor-fonte" asp-area="" asp-controller="Estudante" asp-action="Estudante"><strong>Estudantes</strong></a></li>
+                <li><a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a></li>
+            </ul>
+            <div>
+                <div class="cor-fonte">
+                    Usuario: @HttpContextAccessor.HttpContext.Session.GetString("emailSessao")
+                </div>
+                <button class="link col-sm-6 col-md-6 col-lg-3"> @Html.ActionLink("Sair", "Finalizar", "Sair")</button>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-3 divC navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <a id="semSub" class="nav-link" asp-area="" asp-controller="Login" asp-action="Login"><strong>Home</strong></a>
-        </div>
-    </div>
+    </nav>
 </header>
+
 <div class="row">
     <div>
         <h3 class="cor-fonte" style="margin-left: 30px">Estudante</h3> <br />
@@ -27,7 +37,6 @@
         </div>
     </div>
 
-
     <!-- Nome -->
     <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
@@ -36,7 +45,6 @@
         </div>
     </div>
 
-
     <!-- Curso -->
     <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
@@ -44,7 +52,6 @@
             <input id="curso" required="required" type="text" value="" class="form-control cor-fonte" name="curso">
         </div>
     </div>
-
 
     <!-- Status -->
     <div class="col-sm-12 col-md-6 col-lg-6">
@@ -61,7 +68,7 @@
     <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="form-group">
             <label for="buscar"></label>
-            <button id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
+            <button style="margin-right: 2px" id="buscar" type="button" class="btn btn-primary btn-lg" onclick="estudante.funcoes.consultar()">Buscar</button>
         </div>
     </div>
 </div>
@@ -87,8 +94,3 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css" />
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
 <script src="~/Content/Estudante/Scripts/Estudante.js"></script>
-
-
-<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-</button-->
